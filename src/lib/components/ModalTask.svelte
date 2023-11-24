@@ -93,9 +93,9 @@
 					: '!bottom-16'} right-[37px] my-8 inline-block h-[737px] w-[734px] origin-right transform overflow-hidden rounded-md border-[#333] bg-white {$current_page !==
 				'/task_list'
 					? 'p-0 pr-2.5'
-					: 'py-6 pr-2.5'} text-left align-middle shadow-xl transition-all"
+					: 'py-5 pr-2.5'} text-left align-middle shadow-xl transition-all"
 			>
-				<nav class="relative z-10 flex items-center justify-between px-5 pt-4">
+				<nav class="relative z-10 flex items-center justify-between px-5">
 					<div class="flex w-72 justify-center">
 						<Popover let:open class="flex flex-col items-center gap-2">
 							<PopoverButton
@@ -237,7 +237,7 @@
 												opacity: 0,
 												easing: quadInOut
 											}}
-											class="relative w-full bg-white"
+											class="relative z-10 w-full bg-white"
 										>
 											<DisclosurePanel static class="relative -z-0 mt-4 w-full">
 												<section class="mb-3 flex items-center gap-4 pl-8">

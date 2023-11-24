@@ -21,7 +21,11 @@
 		SearchIcon
 	} from '$lib/icons';
 
-	import { current_page, show_modal_chat } from '$lib/stores';
+	import {
+		current_page,
+		show_loader_chat_cs,
+		show_modal_chat
+	} from '$lib/stores';
 
 	//------------------------------------------------------------------------------------//
 	// Props - Modal Inbox
@@ -48,14 +52,7 @@
 
 	setTimeout(() => {
 		show_all_chat = true;
-	}, 4000);
-
-	// Loader for customer service chat
-	$: show_loader_chat = true;
-
-	setTimeout(() => {
-		show_loader_chat = false;
-	}, 5000);
+	}, 3000);
 
 	// Loader for show new message
 	$: show_new_message = true;
@@ -155,7 +152,11 @@
 							<!-- Back -->
 							<button
 								type="button"
-								on:click={() => ($current_page = '/chat_list')}
+								on:click={() => {
+									$current_page = '/chat_list';
+									$show_loader_chat_cs = false;
+									console.log($show_loader_chat_cs);
+								}}
 							>
 								<ArrowBackIcon class="h-6 w-6 text-[#333333]" />
 							</button>
@@ -169,7 +170,7 @@
 								type="button"
 								on:click={() => {
 									$show_modal_chat = false;
-									$current_page = '/chat_list';
+									$current_page = '/';
 								}}
 							>
 								<CloseIcon
@@ -200,7 +201,7 @@
 						<div
 							class="relative flex w-full flex-col items-start pl-5 pr-2.5 pt-2.5"
 						>
-							{#if show_loader_chat}
+							{#if $show_loader_chat_cs}
 								<section
 									transition:fly={{
 										delay: 0,
@@ -228,6 +229,10 @@
 
 								<button
 									type="button"
+									on:click={() => {
+										console.log($show_loader_chat_cs, 'ok');
+										$show_loader_chat_cs = true;
+									}}
 									class="relative rounded-[5px] bg-primary-2f80ed px-4 py-2 font-bold text-white"
 								>
 									Send
@@ -280,7 +285,7 @@
 								type="button"
 								on:click={() => {
 									$show_modal_chat = false;
-									$current_page = '/chat_list';
+									$current_page = '/';
 								}}
 							>
 								<CloseIcon
@@ -369,7 +374,7 @@
 
 						<!-- ----------------------------------- START: Send Chat ----------------------------------- -->
 						<div
-							class="relative flex w-full flex-col items-start pb-5 pl-5 pr-2.5 {show_loader_chat
+							class="relative flex w-full flex-col items-start pb-5 pl-5 pr-2.5 {$show_loader_chat_cs
 								? 'pt-2.5'
 								: 'pt-5'}"
 						>
