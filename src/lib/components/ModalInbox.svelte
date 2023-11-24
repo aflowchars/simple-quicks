@@ -374,7 +374,7 @@
 
 						<!-- ----------------------------------- START: Send Chat ----------------------------------- -->
 						<div
-							class="relative flex w-full flex-col items-start pb-5 pl-5 pr-2.5 {$show_loader_chat_cs
+							class="relative flex w-full flex-col items-start pb-5 pl-5 pr-2.5 {show_new_message
 								? 'pt-2.5'
 								: 'pt-5'}"
 						>
