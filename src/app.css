@@ -1,0 +1,46 @@
+/*------------------------------------------------------------------------------------------------*/
+/* Google Font */
+/*------------------------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/*------------------------------------------------------------------------------------------------*/
+/* Tailwind CSS */
+/*------------------------------------------------------------------------------------------------*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--scrollbar-background: transparent;
+		--scrollbar-color: #bdbdbd;
+	}
+
+	* {
+		scrollbar-width: 10px;
+		scrollbar-color: var(--scrollbar-color) var(--scrollbar-background);
+	}
+
+	*::-webkit-scrollbar,
+	*::-webkit-scrollbar:horizontal {
+		width: 8px;
+		height: 8px;
+	}
+
+	*::-webkit-scrollbar-track,
+	*::-webkit-scrollbar-track:horizontal {
+		background: var(--scrollbar-background);
+		border-radius: 6px;
+	}
+
+	*::-webkit-scrollbar-thumb,
+	*::-webkit-scrollbar-thumb:horizontal {
+		background-color: var(--scrollbar-color);
+		border-radius: 8px;
+		border: 2px solid var(--scrollbar-background);
+	}
+
+	body {
+		@apply relative font-lato;
+	}
+}
